@@ -105,7 +105,7 @@
         <div class="config-content">
             <h3>Configurações</h3>
             <button onclick="changeTheme()">Mudar Tema</button>
-            <button>Suporte</button>
+            <button> onclick="suporteBtn()"Suporte</button>
             <button onclick="tinaVoice()">Tina Voice</button>
             <button onclick="logout()">Sair</button>
             <button onclick="privacyTina()">Política de Privacidade</button>
@@ -117,7 +117,10 @@
   <script type="module" src="main.js"></script>
 
     <script>
-    
+function suporteBtn(){
+    window.open("https://api.whatsapp.com/send?phone=258862840075","_blank"):
+}
+        alert("Atencao! voce tambe pode acessar a Tina por voz indo nas configuracoes do chat e clicar em *Tina Voice*, espero que goste e de seu feedback"):
         // Função para abrir a janela de configurações
         function confButton() {
             document.getElementById('configPopup').style.display = 'flex';

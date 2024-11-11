@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="tina-logo.jpg">
+    <title>Tina Chat</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="./img/tina-logo.jpg">
+    
+    <!-- CSS incorporado no próprio HTML -->
+    <style>
+        /* Estilos do Chat */
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .settings-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #chatBox {
+            height: 400px;
+            overflow-y: auto;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .message-input-component {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #userMessage {
+            width: 80%;
+            padding: 8px;
+        }
+
+        #sendMessage {
+            padding: 8px 12px;
+        }
+
+        /* Estilos da janela de configurações */
+        .config-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .config-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .config-content h3 {
+            margin-top: 0;
+        }
+
+        .config-content button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: teal;
+        }
+
+        #close-btn {
+            background-color: red;
+            color: white;
+        }
+    </style>
+    
+    
+</head>
+<body>
+
+    <!-- Chat -->
+    <div id="chat-container">
+        <div class="header-component">
+            <img src="./img/tina-logo.jpg" alt="Logo" class="avatar">
+            <h2>Tina Chat</h2>
+            <div class="settings-icon" onclick="confButton()">⚙️</div>
+        </div>
+        <div id="chatBox"></div>
+        <div class="message-input-component">
+            <input type="text" id="userMessage" placeholder="Digite sua mensagem..." />
+            <button id="sendMessage">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Janela de Configurações -->
+    <div class="config-popup" id="configPopup">
+        <div class="config-content">
+            <h3>Configurações</h3>
+            <button onclick="changeTheme()">Mudar Tema</button>
+            <button>Suporte</button>
+            <button onclick="tinaVoice()">Tina Voice</button>
+            <button onclick="logout()">Sair</button>
+            <button onclick="privacyTina()">Política de Privacidade</button>
+            <button id="close-btn" class="close-btn" onclick="closeConfig()">Fechar</button>
+        </div>
+    </div>
+
+
+  <script type="module" src="main.js"></script>
+
+    <script>
+    
+        // Função para abrir a janela de configurações
+        function confButton() {
+            document.getElementById('configPopup').style.display = 'flex';
+        }
+
+        // Função para fechar a janela de configurações
+        function closeConfig() {
+            document.getElementById('configPopup').style.display = 'none';
+        }
+
+        // Função para mudar o tema (exemplo básico de troca de fundo)
+        function changeTheme() {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'black' ? 'white' : 'black';
+            document.body.style.color = document.body.style.color === 'white' ? 'black' : 'white';
+        }
+
+        // Função para "sair"
+        function logout() {
+            alert('Você foi descontado');
+            
+          window.closeConfig()
+          window.location.href = "login.html";
+            // Adicione a lógica de logout aqui
+        }
+        
+        function tinaVoice(){
+          window.location.href = "call.html";
+        }
+        
+        function privacyTina(){
+          window.open("https://privacytina.netlify.app","_blank");
+        }
+        
+        
+    </script>
+  
+</body>
+</html>

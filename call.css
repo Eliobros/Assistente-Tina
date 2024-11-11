@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+}
+
+.chat-box {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.speak-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.speak-button:hover {
+    background-color: #45a049;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-image: url('./img/tina-logo.jpg'); /* Altere para o caminho da sua logo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: width 0.5s, height 0.5s;
+}
+
+.logo.listening {
+    width: 60px;
+    height: 60px;
+}

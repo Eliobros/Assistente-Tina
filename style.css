@@ -1,0 +1,204 @@
+/* Resetando margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo a cor principal */
+:root {
+    --main-color: #9f7efe;
+}
+
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contêiner do chat */
+#chat-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 97%;
+    max-width: 600px; /* Ajuste para telas grandes */
+    height: 620px; /* Definir altura relativa à altura da tela */
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #dcdcdc;
+}
+
+/* Cabeçalho do chat */
+.header-component {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Estilo da imagem do avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Título do chat */
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Ícone de configurações */
+.settings-icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Caixa de mensagens */
+#chatBox {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #fafafa;
+    border-bottom: 2px solid #dcdcdc;
+    margin-bottom: 10px;
+}
+
+/* Componente de input de mensagem */
+.message-input-component {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Estilo do campo de texto */
+#userMessage {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Estilo do botão de enviar */
+#sendMessage {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#sendMessage:hover {
+    background-color: #6a68d0;
+}
+
+#sendMessage:active {
+    background-color: #5e60a0;
+}
+
+/* Estilo geral para as mensagens */
+.message {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Estilo específico para mensagens do usuário */
+.message.user .message-bubble {
+    background-color: #008080; /* Teal */
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo específico para mensagens do bot */
+.message.bot .message-bubble {
+    background-color: #28a745; /* Green */
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    max-width: 60%;
+    margin-left: 0;
+    margin-right: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o tempo da mensagem */
+.message-time {
+    font-size: 0.8em;
+    color: #ccc;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Media Queries para telas maiores */
+
+/* Para telas médias (telas de tablets ou pequenas telas de desktop) */
+@media (min-width: 768px) {
+    #chat-container {
+        width: 90%; /* Aumenta a largura do chat */
+        height: 60vh; /* Ajusta a altura para maior espaço */
+    }
+
+    .header-component {
+        padding: 15px; /* Aumenta o padding no cabeçalho */
+    }
+
+    .message-input-component {
+        padding: 15px; /* Aumenta o padding na área de digitação */
+    }
+
+    #userMessage {
+        font-size: 16px; /* Aumenta o tamanho da fonte do campo de mensagem */
+    }
+
+    #sendMessage {
+        padding: 12px 18px; /* Ajuste no tamanho do botão de enviar */
+    }
+}
+
+/* Para telas grandes (desktop e telas grandes) */
+@media (min-width: 1024px) {
+    #chat-container {
+        max-width: 2500px; /* Ajusta a largura do chat para telas maiores */
+        height: 100vh; /* Mantém uma altura proporcional */
+    }
+
+    .header-component {
+        padding: 20px; /* Aumenta o padding para melhorar o layout */
+    }
+
+    .message-input-component {
+        padding: 20px; /* Aumenta o padding na área de digitação */
+    }
+
+    #userMessage {
+        font-size: 18px; /* Aumenta o tamanho da fonte do campo de mensagem */
+    }
+
+    #sendMessage {
+        padding: 15px 20px; /* Aumenta o botão de enviar */
+    }
+}

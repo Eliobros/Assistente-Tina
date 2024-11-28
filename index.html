@@ -1,29 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tina Chat || Login</title>
-    <link rel="stylesheet" href="login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tina é uma assistente virtual inteligente desenvolvida pela Eliobros Tech para oferecer suporte e facilitar a interação com os usuários.">
+
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="./img/tina_logo.ico" type="image/x-icon">
+  <title>Login/Cadastro || Tina-Chat</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2 {
+  color: #0097fe;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background: #0097fe;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background: #007bce;
+}
+
+.switch-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.switch-link a {
+  color: #0097fe;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}
+  </style>
 </head>
 <body>
-    <!-- Formulário de Cadastro/Login -->
-    <div id="form-container">
-        <h2>Cadastro/Login</h2>
-        <form id="login-form">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required><br>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required><br>
-
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required><br>
-
-            <button type="submit">Entrar</button>
-        </form>
+  <div class="container">
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="loginEmail">Nome ou E-mail</label>
+        <input type="text" id="loginEmail" placeholder="Digite seu nome ou e-mail" />
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Senha</label>
+        <input type="password" id="loginPassword" placeholder="Digite sua senha" />
+      </div>
+      <div class="form-group">
+        <button id="loginBtn">Login</button>
+      </div>
+      <div class="form-group">
+        <button id="googleLoginBtn">Login com Google</button>
+      </div>
+      <div class="switch-link">
+        <a id="toRegister" href="#">Ainda não tem conta? Cadastre-se</a>
+        <br />
+        <a id="toResetPassword" href="#">Esqueceu a senha?</a>
+      </div>
     </div>
 
-    <script src="login.js"></script>
+    <!-- Register Form -->
+    <div id="registerForm" style="display: none;">
+      <h2>Cadastro</h2>
+      <div class="form-group">
+        <label for="registerName">Nome</label>
+        <input type="text" id="registerName" placeholder="Digite seu nome" />
+      </div>
+      <div class="form-group">
+        <label for="registerEmail">E-mail</label>
+        <input type="email" id="registerEmail" placeholder="Digite seu e-mail" />
+      </div>
+      <div class="form-group">
+        <label for="registerPassword">Senha</label>
+        <input type="password" id="registerPassword" placeholder="Digite sua senha" />
+      </div>
+      <div class="form-group">
+        <button id="registerBtn">Cadastrar</button>
+      </div>
+      <div class="form-group">
+        <button id="googleRegisterBtn">Cadastro com Google</button>
+      </div>
+      <div class="switch-link">
+        <a id="toLoginFromRegister" href="#">Já tem uma conta? Login</a>
+      </div>
+    </div>
+
+    <!-- Reset Password Form -->
+    <div id="resetPasswordForm" style="display: none;">
+      <h2>Redefinir Senha</h2>
+      <div class="form-group">
+        <label for="resetEmail">E-mail</label>
+        <input type="email" id="resetEmail" placeholder="Digite seu e-mail" />
+      </div>
+      <div class="form-group">
+        <button id="resetPasswordBtn">Enviar e-mail de redefinição</button>
+      </div>
+      <div class="switch-link">
+        <a id="toLoginFromReset" href="#">Voltar ao login</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
 </body>
 </html>

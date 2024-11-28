@@ -3,126 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tina é uma assistente virtual inteligente desenvolvida pela Eliobros Tech para oferecer suporte e facilitar a interação com os usuários.">
+  <meta name="description" content="Tina é uma assistente virtual inteligente desenvolvida pela Eliobros Tech para oferecer suporte e facilitar a interação com os usuários.">
 
     <link rel="icon" type="image/x-icon" href="tina-logo.jpg">
     <title>Tina Chat</title>
     <link rel="stylesheet" href="style.css">
     
-    <link rel="shortcut icon" type="image/x-icon" href="./img/tina-logo.jpg">
-    
-    <!-- CSS incorporado no próprio HTML -->
-    <style>
-        /* Estilos do Chat */
+  <!-- Cabeçalho do Chat -->
+<div class="header-component">
+    <img src="./img/tina-logo.jpg" alt="Logo" class="avatar">
+    <h2>Assistente Tina</h2>
+    <div class="settings-icon" onclick="confButton()">⚙️</div>
+</div>
 
-        h2 {
-            font-size: 1.5rem;
-        }
+<!-- Caixa de Mensagens -->
+<div id="chatBox"></div>
 
-        .settings-icon {
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+<!-- Campo de Entrada de Mensagem -->
+<div class="message-input-component">
+    <input type="text" id="userMessage" placeholder="Digite sua mensagem..." />
+    <button id="sendMessage">Enviar</button>
+</div>
 
-        #chatBox {
-            height: 400px;
-            overflow-y: auto;
-            margin: 20px 0;
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        .message-input-component {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #userMessage {
-            width: 80%;
-            padding: 8px;
-        }
-
-        #sendMessage {
-            padding: 8px 12px;
-        }
-
-        /* Estilos da janela de configurações */
-        .config-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .config-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-        }
-
-        .config-content h3 {
-            margin-top: 0;
-        }
-
-        .config-content button {
-            margin-top: 10px;
-            padding: 8px 12px;
-            cursor: pointer;
-            background-color: teal;
-        }
-
-        #close-btn {
-            background-color: red;
-            color: white;
-        }
-    </style>
-    
-    
-</head>
-<body>
-
-    <!-- Chat -->
-    <div id="chat-container">
-        <div class="header-component">
-            <img src="./img/tina-logo.jpg" alt="Logo" class="avatar">
-            <h2>Tina Chat</h2>
-            <div class="settings-icon" onclick="confButton()">⚙️</div>
-        </div>
-        <div id="chatBox"></div>
-        <div class="message-input-component">
-            <input type="text" id="userMessage" placeholder="Digite sua mensagem..." />
-            <button id="sendMessage">Enviar</button>
-        </div>
+<!-- Configurações -->
+<div class="config-popup" id="configPopup">
+    <div class="config-content">
+        <h3>Configurações</h3>
+        <button onclick="changeTheme()">Mudar Tema</button>
+        <button>Suporte</button>
+        <button onclick="tinaVoice()">Tina Voice</button>
+        <button onclick="logout()">Sair</button>
+        <button onclick="privacyTina()">Política de Privacidade</button>
+        <button id="close-btn" onclick="closeConfig()">Fechar</button>
     </div>
+</div>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-    <!-- Janela de Configurações -->
-    <div class="config-popup" id="configPopup">
-        <div class="config-content">
-            <h3>Configurações</h3>
-            <button onclick="changeTheme()">Mudar Tema</button>
-            <button> onclick="suporteBtn()"Suporte</button>
-            <button onclick="tinaVoice()">Tina Voice</button>
-            <button onclick="logout()">Sair</button>
-            <button onclick="privacyTina()">Política de Privacidade</button>
-            <button id="close-btn" class="close-btn" onclick="closeConfig()">Fechar</button>
-        </div>
-    </div>
+  // Configuração do Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxml_34BiDbOmMxclzM-UnFzke9ymcf8A",
+    authDomain: "tina-chat-87cc1.firebaseapp.com",
+    projectId: "tina-chat-87cc1",
+    storageBucket: "tina-chat-87cc1.firebasestorage.app",
+    messagingSenderId: "518858413060",
+    appId: "1:518858413060:web:86c6cb8f5094a9b5291151",
+    measurementId: "G-CB39SE8MQZ"
+  };
 
-
-  <script type="module" src="main.js"></script>
-
+  // Inicializando o Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app); // Inicializando o Firestore
+</script>
+    <!-- Scripts -->
+    <script type="module" src="app.js"></script>
     <script>
-function suporteBtn(){
-    window.open("https://api.whatsapp.com/send?phone=258862840075","_blank"):
-}
-        alert("Atencao! voce tambe pode acessar a Tina por voz indo nas configuracoes do chat e clicar em *Tina Voice*, espero que goste e de seu feedback"):
+    
         // Função para abrir a janela de configurações
         function confButton() {
             document.getElementById('configPopup').style.display = 'flex';
@@ -144,7 +83,7 @@ function suporteBtn(){
             alert('Você foi descontado');
             
           window.closeConfig()
-          window.location.href = "login.html";
+          window.location.href = "index.html";
             // Adicione a lógica de logout aqui
         }
         
